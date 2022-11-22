@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: microprofile-deploy
+  labels:
+    app: microprofile
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: microprofile-pod
+  template:
+    metadata:
+      labels:
+        app: microprofile-pod
+    spec:
+      containers:
+      - name: demo
+        image: demo:0.0.1
+        ports:
+        - containerPort: 9080
+          name: http
+        - containerPort: 9443
+          name: https
