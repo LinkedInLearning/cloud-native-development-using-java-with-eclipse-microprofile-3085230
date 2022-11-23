@@ -1,0 +1,10 @@
+global:
+  scrape_interval: 15s
+  external_labels:
+    monitor: 'demoapp-monitor'
+scrape_configs:
+  - job_name: 'prometheus'
+    scrape_interval: 5s
+    metrics_path: PATH
+    static_configs:
+      - targets: [TARGET]
